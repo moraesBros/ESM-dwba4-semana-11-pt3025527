@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head lang="pt-br">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="Imagens/favicon.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/conteudo.css">
+    <!--link rel="stylesheet" href="css/menulateral.css"-->
+    <title>HOME - IFSP - Pirituba</title>
+    <script src="js/disabling.js"></script>
+    <!-- Scripts do Bootstrap (jQuery, Popper, Bootstrap JS) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+  
+  <header id="cabecalho"> <!-- Indica o cabeçalho do nosso documento-->
+    <nav>
+      <object width="100%" height="200px" data="menu.html"></object>
+    </nav>    
+    
+  </header>
+  
+ <main>
+  <img src="Imagens/ifsp.png" alt="IFSP" style="width: 10%; height: auto;">
+  <h1>Faça login</h1>
+
+  <div class="mx-auto" style="max-width: 400px;">
+    <form id="loginForm" novalidate>
+      
+      <!-- Campo email -->
+      <div class="form-group">
+        <input type="email" class="form-control text-center" id="email" placeholder="seu_email.com" required>
+        <div class="invalid-feedback">Preencher e-mail.</div>
+      </div>
+
+      <!-- Campo senha -->
+      <div class="form-group">
+        <input type="password" class="form-control text-center" id="senha" placeholder="***Senha***" required>
+        <div class="invalid-feedback">Preencher senha.</div>
+      </div>
+
+      <!-- Checkbox -->
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="lembrar">
+        <label class="form-check-label" for="lembrar">Lembra de mim</label>
+      </div>
+
+      <div class="form-group"><br></div>
+
+      <!-- Link esqueci a senha -->
+      <div class="form-group text-center">
+        <a href="contato.html">Esqueci a senha</a>
+      </div>
+
+      <!-- Botão Login -->
+      <div class="form-group">
+        <button type="button" class="btn btn-primary btn-block" id="loginBtn">Login</button>
+      </div>
+
+    </form>
+  </div>
+</main>
+
+<script>
+  document.getElementById('loginBtn').addEventListener('click', function() {
+    var emailInput = document.getElementById('email');
+    var senhaInput = document.getElementById('senha');
+    var valid = true;
+
+    // Remove marcações de erro anteriores
+    emailInput.classList.remove('is-invalid');
+    senhaInput.classList.remove('is-invalid');
+
+    // Verifica se o e-mail está vazio
+    if (emailInput.value.trim() === '') {
+      emailInput.classList.add('is-invalid');
+      valid = false;
+    }
+
+    // Verifica se a senha está vazia
+    if (senhaInput.value.trim() === '') {
+      senhaInput.classList.add('is-invalid');
+      valid = false;
+    }
+
+    if (valid) {
+      // Aqui você pode enviar o formulário ou realizar a ação de login
+      // Exemplo: document.getElementById('loginForm').submit();
+      alert('Login efetuado com sucesso!');
+    }
+  });
+</script>
+	
+  <footer>     
+      <object width="100%" height="200px" data="rodape.html"></object>
+  </footer>
+
+</body>
+
+</html>
