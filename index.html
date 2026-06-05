@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="css/conteudo.css">
-    <!--link rel="stylesheet" href="css/menulateral.css"-->
     <title>HOME - IFSP - Pirituba</title>
     <script src="js/disabling.js"></script>
     <!-- Scripts do Bootstrap (jQuery, Popper, Bootstrap JS) -->
@@ -21,6 +20,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"></script>
+
+    <!-- NOVO: html2canvas para captura de tela -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+            integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6BRzoJ2C6ccMkAxw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -31,7 +35,7 @@
         </nav>
     </header>
 
-    <!-- CARROSSEL AUTOMÁTICO -->
+    <!-- CARROSSEL AUTOMÁTICO (mantido igual) -->
     <style>
         .slideshow-container{
             max-width: 1000px;
@@ -94,6 +98,7 @@
     </div>
 
     <script>
+        // Script do carrossel (mantido igual)
         let slideIndex = 0;
         showSlides();
         function showSlides(){
@@ -128,64 +133,69 @@
         }
     </script>
 
-    <main id="conteudo">
-        <style>
-            .grade-noticias {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 20px;
-            }
-            .campo {
-                background-color: transparent;
-                padding: 15px;
-                border: none;
-                box-shadow: none;
-            }
-            .campo img {
-                width: 100%;
-                height: auto;
-                border-radius: 4px;
-            }
-        </style>
+    <!-- NOVO: ÁREA QUE SERÁ CAPTURADA (envolva o conteúdo que deseja "fotografar") -->
+    <div id="capture-area">
+        <main id="conteudo">
+            <style>
+                .grade-noticias {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 20px;
+                }
+                .campo {
+                    background-color: transparent;
+                    padding: 15px;
+                    border: none;
+                    box-shadow: none;
+                }
+                .campo img {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 4px;
+                }
+            </style>
 
-        <aside>
-            <div class="grade-noticias">
-                <div class="campo">
-                    <img src="Imagens/eleicoes.jpg" alt="Eleições IFSP">
-                    <p><b>Radar IFSP: Informe-se as eleições do dia 13 de outubro</b></p> 
-                    <p>Todos os alunos e servidores podem votar; acesse aqui a cabine de votação online do seu campus.</p>
+            <aside>
+                <div class="grade-noticias">
+                    <div class="campo">
+                        <img src="Imagens/eleicoes.jpg" alt="Eleições IFSP">
+                        <p><b>Radar IFSP: Informe-se as eleições do dia 13 de outubro</b></p> 
+                        <p>Todos os alunos e servidores podem votar; acesse aqui a cabine de votação online do seu campus.</p>
+                    </div>
+                    <div class="campo">
+                        <img src="Imagens/snct.jpg" alt="SNCT IFSP">
+                        <p><b>IFSP SNCT reúne atividades entre 19 e 24 de outubro</b></p>
+                        <p>Programação reunirá iniciativas para aproximar pesquisadores e atividades culturais.</p>
+                    </div>
+                    <div class="campo">
+                        <img src="Imagens/residencia.png" alt="Residência Pedagógica">
+                        <p><b>IFSP oferece bolsa aos voluntários da Residência Pedagógica</b></p>
+                        <p>Bolsa de R$ 400,00 será pago pelo período de três meses.</p>
+                    </div>
+                    <div class="campo">
+                        <img src="Imagens/maratona.jpeg" alt="Maratona Inter IF">
+                        <p><b>Inscrições abertas para a III Maratona Inter IF</b></p>
+                        <p>Maratona de programação do IFSP será realizada online, no dia 31 de outubro; Inscrições até 26 de outubro.</p>
+                    </div>
                 </div>
-                <div class="campo">
-                    <img src="Imagens/snct.jpg" alt="SNCT IFSP">
-                    <p><b>IFSP SNCT reúne atividades entre 19 e 24 de outubro</b></p>
-                    <p>Programação reunirá iniciativas para aproximar pesquisadores e atividades culturais.</p>
-                </div>
-                <div class="campo">
-                    <img src="Imagens/residencia.png" alt="Residência Pedagógica">
-                    <p><b>IFSP oferece bolsa aos voluntários da Residência Pedagógica</b></p>
-                    <p>Bolsa de R$ 400,00 será pago pelo período de três meses.</p>
-                </div>
-                <div class="campo">
-                    <img src="Imagens/maratona.jpeg" alt="Maratona Inter IF">
-                    <p><b>Inscrições abertas para a III Maratona Inter IF</b></p>
-                    <p>Maratona de programação do IFSP será realizada online, no dia 31 de outubro; Inscrições até 26 de outubro.</p>
-                </div>
-            </div>
-        </aside>
+            </aside>
 
-        <section>
-            <h1>Conheça os desafios de inovação</h1>
-            <div class="videoWrapper">
-                <p align="center">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/5g5LQe3m8Po" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </p>
-            </div>
-        </section>
+            <section>
+                <h1>Conheça os desafios de inovação</h1>
+                <div class="videoWrapper">
+                    <p align="center">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/5g5LQe3m8Po" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </p>
+                </div>
+            </section>
 
-        <!-- NOVA ÁREA REACT: contador de curtidas -->
-        <div id="react-root" style="text-align:center; margin: 30px auto;"></div>
-        <!-- FIM DA ÁREA REACT -->
-    </main>
+            <!-- CONTADOR DE CURTIDAS (mantido) -->
+            <div id="react-root" style="text-align:center; margin: 30px auto;"></div>
+        </main>
+    </div> <!-- FIM DA ÁREA DE CAPTURA -->
+
+    <!-- NOVO: Painel de ferramentas de captura (React) -->
+    <div id="capture-app" style="text-align:center; margin: 30px auto;"></div>
 
     <footer>
         <br><br>
@@ -193,13 +203,11 @@
     </footer>
 
     <!-- ===================== REACT + BABEL ===================== -->
-    <!-- React 18 (development) -->
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-    <!-- Babel standalone para transformar JSX no navegador -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <!-- Nosso componente React -->
+    <!-- Componente LikeCounter (mantido) -->
     <script type="text/babel">
         function LikeCounter() {
             const [likes, setLikes] = React.useState(0);
@@ -241,7 +249,120 @@
         const root = ReactDOM.createRoot(document.getElementById('react-root'));
         root.render(<LikeCounter />);
     </script>
-    <!-- ========================================================= -->
+
+    <!-- NOVO: Componente CaptureTools (captura de tela) -->
+    <script type="text/babel">
+        function CaptureTools() {
+            const [imagemURL, setImagemURL] = React.useState(null);
+            const [scale, setScale] = React.useState(1);
+
+            const capturarTela = async () => {
+                const elemento = document.getElementById('capture-area');
+                if (elemento) {
+                    const canvas = await html2canvas(elemento, {
+                        scale: scale,
+                        useCORS: true,
+                        logging: false
+                    });
+                    const dataURL = canvas.toDataURL('image/png');
+                    setImagemURL(dataURL);
+                }
+            };
+
+            const baixarImagem = () => {
+                if (!imagemURL) return;
+                const link = document.createElement('a');
+                link.href = imagemURL;
+                link.download = 'pagina_inicial.png';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            };
+
+            const imprimir = () => {
+                if (!imagemURL) return;
+                const janela = window.open('');
+                janela.document.write(
+                    `<img src="${imagemURL}" style="max-width:100%; display:block; margin:0 auto;" onload="window.print();window.close()"/>`
+                );
+                janela.document.close();
+            };
+
+            const compartilhar = async () => {
+                if (!imagemURL) return;
+                const resposta = await fetch(imagemURL);
+                const blob = await resposta.blob();
+                const arquivo = new File([blob], 'pagina_inicial.png', { type: 'image/png' });
+
+                if (navigator.share) {
+                    try {
+                        await navigator.share({
+                            files: [arquivo],
+                            title: 'Página Inicial – IFSP',
+                        });
+                    } catch (erro) {
+                        console.log('Compartilhamento cancelado', erro);
+                    }
+                } else {
+                    alert('Compartilhamento não suportado neste navegador. Use o botão de download.');
+                }
+            };
+
+            const botaoEstilo = {
+                padding: '8px 16px',
+                background: '#28a745',
+                color: 'white',
+                border: 'none',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                fontSize: '16px',
+                margin: '0 5px'
+            };
+
+            return (
+                <div style={{ fontFamily: 'Arial, sans-serif' }}>
+                    <div style={{ marginBottom: '15px' }}>
+                        <button onClick={capturarTela} style={botaoEstilo}>
+                            📷 Gerar PNG
+                        </button>
+                        <button onClick={() => setScale(s => Math.max(0.3, s - 0.1))} style={botaoEstilo}>
+                            ➖
+                        </button>
+                        <span style={{ fontWeight: 'bold' }}>{Math.round(scale * 100)}%</span>
+                        <button onClick={() => setScale(s => Math.min(3, s + 0.1))} style={botaoEstilo}>
+                            ➕
+                        </button>
+                        {imagemURL && (
+                            <>
+                                <button onClick={baixarImagem} style={botaoEstilo}>
+                                    ⬇ Download
+                                </button>
+                                <button onClick={imprimir} style={botaoEstilo}>
+                                    🖨 Imprimir
+                                </button>
+                                <button onClick={compartilhar} style={botaoEstilo}>
+                                    📤 Compartilhar
+                                </button>
+                            </>
+                        )}
+                    </div>
+                    {imagemURL && (
+                        <div>
+                            <p><strong>Prévia da imagem:</strong></p>
+                            <img
+                                src={imagemURL}
+                                alt="Prévia da página inicial"
+                                style={{ maxWidth: '80%', border: '1px solid #ddd', borderRadius: '8px' }}
+                            />
+                        </div>
+                    )}
+                </div>
+            );
+        }
+
+        const captureRoot = ReactDOM.createRoot(document.getElementById('capture-app'));
+        captureRoot.render(<CaptureTools />);
+    </script>
 
     <!-- Scripts do Firebase (já existentes) -->
     <script src="/__/firebase/8.8.1/firebase-app.js"></script>
