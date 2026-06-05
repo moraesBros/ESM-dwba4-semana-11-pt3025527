@@ -1,31 +1,80 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>IFSP - Pirituba</title>
-<link rel="stylesheet" href="css/menu.css">
-<script src="js/disabling.js"></script>
+    <meta charset="UTF-8">
+    <title>IFSP - Pirituba</title>
+    <link rel="stylesheet" href="css/menu.css">
+    <script src="js/disabling.js"></script>
 </head>
 <body>
-  <header>    
-    <div id="menuhorizontal">
-      <ul>
-  		<li><a href="index.html" target="_top">HOME</a></li>
-  		<li><a href="eventos.html" target="_top">EVENTOS</a></li>
-  		<li><a href="contato.html" target="_top">CONTATO</a></li>
-  		<li class="dropdown"><a href="javascript:void(0)" class="dropbtn">CURSOS</a>
-    	  <div class="dropdown-content">
-    	    <a href="ads.html" target="_top">Análise e Desenvolvimento de Sistemas</a>
-    	    <a href="#" target="_top">Engenharia de Produção</a>
-          </div>
-        </li>      
-        <li><a href="entrar.html" target="_top">ENTRAR</a></li>
-        <li id='about'><a  href="sobre.html" target="_top">SOBRE</a></li>
-  		
-     </ul>
-     <img src="Imagens/Logo.jpg" alt=" " /> <!-- anexa imagem e texto alternativo-->    
-    </div>    
-              
-  </header>  
+    <header>    
+        <div id="menuhorizontal">
+            <ul>
+                <li><a href="index.html" target="_top">HOME</a></li>
+                <li><a href="eventos.html" target="_top">EVENTOS</a></li>
+                <li><a href="contato.html" target="_top">CONTATO</a></li>
+                <li class="dropdown"><a href="javascript:void(0)" class="dropbtn">CURSOS</a>
+                    <div class="dropdown-content">
+                        <a href="ads.html" target="_top">Análise e Desenvolvimento de Sistemas</a>
+                        <a href="#" target="_top">Engenharia de Produção</a>
+                    </div>
+                </li>      
+                <li><a href="entrar.html" target="_top">ENTRAR</a></li>
+                <li id='about'><a  href="sobre.html" target="_top">SOBRE</a></li>
+            </ul>
+            <img src="Imagens/Logo.jpg" alt=" " />
+        </div>    
+    </header>
+
+    <!-- Área onde o React será renderizado -->
+    <div id="menu-react-root" style="text-align:center; margin: 15px auto;"></div>
+
+    <!-- Bibliotecas do React e Babel -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Componente React: LikeCounter para o menu -->
+    <script type="text/babel">
+        function LikeCounter() {
+            const [likes, setLikes] = React.useState(0);
+            const [clicked, setClicked] = React.useState(false);
+
+            const handleLike = () => {
+                if (!clicked) {
+                    setLikes(likes + 1);
+                    setClicked(true);
+                } else {
+                    setLikes(likes - 1);
+                    setClicked(false);
+                }
+            };
+
+            return (
+                <div style={{ fontFamily: 'sans-serif' }}>
+                    <p style={{ fontSize: '1em', marginBottom: '8px' }}>
+                        Gostou do nosso site? 
+                    </p>
+                    <button 
+                        onClick={handleLike}
+                        style={{
+                            padding: '8px 16px',
+                            fontSize: '0.9em',
+                            backgroundColor: clicked ? '#28a745' : '#007bff',
+                            color: 'white',
+                            border: 'none',
+                            borderRadius: '5px',
+                            cursor: 'pointer'
+                        }}
+                    >
+                        {clicked ? '❤️ Curtiu!' : '🤍 Curtir'} ({likes})
+                    </button>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('menu-react-root'));
+        root.render(<LikeCounter />);
+    </script>
 </body>
 </html>
