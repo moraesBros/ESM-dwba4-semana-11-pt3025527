@@ -21,42 +21,43 @@
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"></script>
 
-    <!-- NOVO: html2canvas para captura de tela -->
+    <!-- html2canvas para captura de tela -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
             integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6BRzoJ2C6ccMkAxw=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</head>
 
-<body>
-
-    <header id="cabecalho">
-        <nav>
-            <object width="100%" height="200px" data="menu.html"></object>
-        </nav>
-    </header>
-
-    <!-- CARROSSEL AUTOMÁTICO (mantido igual) -->
+    <!-- Estilos para evitar rolagem horizontal -->
     <style>
-        .slideshow-container{
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        /* Container do object para evitar overflow */
+        .object-wrapper {
+            max-width: 100%;
+            overflow: hidden;
+        }
+        /* Carrossel mantido igual */
+        .slideshow-container {
             max-width: 1000px;
             position: relative;
             margin: auto;
             margin-top: 20px;
         }
-        .slide{
+        .slide {
             display: none;
         }
         .slide img,
-        .slide iframe{
+        .slide iframe {
             width: 100%;
             height: 400px;
             border-radius: 8px;
         }
-        .dots{
+        .dots {
             text-align: center;
             margin-top: 10px;
         }
-        .dot{
+        .dot {
             height: 15px;
             width: 15px;
             margin: 0 5px;
@@ -66,11 +67,47 @@
             cursor: pointer;
             transition: background-color 0.6s ease;
         }
-        .active{
+        .active {
             background-color: #333;
         }
+        /* Grade de notícias responsiva */
+        .grade-noticias {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .campo {
+            background-color: transparent;
+            padding: 15px;
+            border: none;
+            box-shadow: none;
+            min-width: 0; /* evita que o conteúdo estoure a coluna */
+        }
+        .campo img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        /* Em telas pequenas, empilha as colunas */
+        @media (max-width: 768px) {
+            .grade-noticias {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
+</head>
 
+<body>
+
+    <header id="cabecalho">
+        <nav>
+            <div class="object-wrapper">
+                <object width="100%" height="200px" data="menu.html"></object>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CARROSSEL AUTOMÁTICO -->
     <div class="slideshow-container">
         <div class="slide">
             <img src="Imagens/A.png" alt="Imagem A">
@@ -98,7 +135,6 @@
     </div>
 
     <script>
-        // Script do carrossel (mantido igual)
         let slideIndex = 0;
         showSlides();
         function showSlides(){
@@ -133,28 +169,9 @@
         }
     </script>
 
-    <!-- NOVO: ÁREA QUE SERÁ CAPTURADA (envolva o conteúdo que deseja "fotografar") -->
+    <!-- ÁREA CAPTURADA -->
     <div id="capture-area">
         <main id="conteudo">
-            <style>
-                .grade-noticias {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    gap: 20px;
-                }
-                .campo {
-                    background-color: transparent;
-                    padding: 15px;
-                    border: none;
-                    box-shadow: none;
-                }
-                .campo img {
-                    width: 100%;
-                    height: auto;
-                    border-radius: 4px;
-                }
-            </style>
-
             <aside>
                 <div class="grade-noticias">
                     <div class="campo">
@@ -182,24 +199,25 @@
 
             <section>
                 <h1>Conheça os desafios de inovação</h1>
-                <div class="videoWrapper">
-                    <p align="center">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/5g5LQe3m8Po" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </p>
+                <!-- Vídeo responsivo com Bootstrap -->
+                <div class="embed-responsive embed-responsive-16by9" style="max-width: 800px; margin: 0 auto;">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/5g5LQe3m8Po" allowfullscreen></iframe>
                 </div>
             </section>
 
-            <!-- CONTADOR DE CURTIDAS (mantido) -->
+            <!-- CONTADOR DE CURTIDAS -->
             <div id="react-root" style="text-align:center; margin: 30px auto;"></div>
         </main>
-    </div> <!-- FIM DA ÁREA DE CAPTURA -->
+    </div>
 
-    <!-- NOVO: Painel de ferramentas de captura (React) -->
+    <!-- Painel de ferramentas de captura (React) -->
     <div id="capture-app" style="text-align:center; margin: 30px auto;"></div>
 
     <footer>
         <br><br>
-        <object width="100%" height="200px" data="rodape.html"></object>
+        <div class="object-wrapper">
+            <object width="100%" height="200px" data="rodape.html"></object>
+        </div>
     </footer>
 
     <!-- ===================== REACT + BABEL ===================== -->
@@ -207,7 +225,7 @@
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <!-- Componente LikeCounter (mantido) -->
+    <!-- Componente LikeCounter -->
     <script type="text/babel">
         function LikeCounter() {
             const [likes, setLikes] = React.useState(0);
@@ -250,7 +268,7 @@
         root.render(<LikeCounter />);
     </script>
 
-    <!-- NOVO: Componente CaptureTools (captura de tela) -->
+    <!-- Componente CaptureTools -->
     <script type="text/babel">
         function CaptureTools() {
             const [imagemURL, setImagemURL] = React.useState(null);
@@ -364,7 +382,7 @@
         captureRoot.render(<CaptureTools />);
     </script>
 
-    <!-- Scripts do Firebase (já existentes) -->
+    <!-- Scripts do Firebase -->
     <script src="/__/firebase/8.8.1/firebase-app.js"></script>
     <script src="/__/firebase/init.js"></script>
 
