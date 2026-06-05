@@ -1,74 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Rodapé – IFSP Pirituba</title>
-    <script src="js/disabling.js"></script>
+<meta charset="UTF-8">
+<script src="js/disabling.js"></script>
 </head>
 <body>
 
-    <footer>
-        <br><br>
-        <div id="my_menu" align="left">	 
-            <a href="https://www.facebook.com/ifsppirituba">
-                <img src="Imagens/facebook.png" width="41" height="43" title="IFSP Facebook" alt="IFSP Facebook">
-            </a> 
-        </div>
-        <p>
-            IFSP - Câmpus Pirituba - Av. Mutinga, 951 - Jardim Santo Elias - CEP: 05110-000 - São Paulo/SP - Contato: (011) 2504-0100
-        </p>
-
-        <!-- Área do React -->
-        <div id="footer-react-root" style="text-align:center; margin: 15px auto;"></div>
-
-        <!-- Bibliotecas React + Babel -->
-        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-        <!-- Componente LikeCounter adaptado para o rodapé -->
-        <script type="text/babel">
-            function LikeCounter() {
-                const [likes, setLikes] = React.useState(0);
-                const [clicked, setClicked] = React.useState(false);
-
-                const handleLike = () => {
-                    if (!clicked) {
-                        setLikes(likes + 1);
-                        setClicked(true);
-                    } else {
-                        setLikes(likes - 1);
-                        setClicked(false);
-                    }
-                };
-
-                return (
-                    <div style={{ fontFamily: 'sans-serif' }}>
-                        <p style={{ fontSize: '1em', marginBottom: '8px' }}>
-                            Curta nossa página!
-                        </p>
-                        <button 
-                            onClick={handleLike}
-                            style={{
-                                padding: '8px 16px',
-                                fontSize: '0.9em',
-                                backgroundColor: clicked ? '#28a745' : '#007bff',
-                                color: 'white',
-                                border: 'none',
-                                borderRadius: '5px',
-                                cursor: 'pointer'
-                            }}
-                        >
-                            {clicked ? '❤️ Curtiu!' : '🤍 Curtir'} ({likes})
-                        </button>
-                    </div>
-                );
-            }
-
-            const root = ReactDOM.createRoot(document.getElementById('footer-react-root'));
-            root.render(<LikeCounter />);
-        </script>
-    </footer>
+<footer>
+  <br><br>
+  <div id="my_menu" align="left">	 
+	<a href="https://www.facebook.com/ifsppirituba"><img src="Imagens/facebook.png" width="41" height="43" title="IFSP Facebook" alt="IFSP Facebook"></a> 
+  </div>
+  <p>
+  IFSP - Câmpus Pirituba - Av. Mutinga, 951 - Jardim Santo Elias - CEP: 05110-000 - São Paulo/SP - Contato: (011) 2504-0100
+  </p>
+</footer>
 
 </body>
 </html>
